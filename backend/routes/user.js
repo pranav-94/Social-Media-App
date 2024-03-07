@@ -87,7 +87,31 @@ router.post('/post',(req,res)=>{
 
 })
 
-//for main user's profile
+//for main user's profile gonna fucked up
+router.get('/AlluserProfile',async(req,res)=>{
+    const name = req.query.name
+    // console.log(name)
+
+    const findUserFromDb = await db.userModel.findOne({
+        name: name
+    })
+    if(!findUserFromDb){
+        return res.status(403).json({
+            msg: 'access denied'
+        })
+    }
+
+    const findMessages = await db.messageModel.find({
+        name:findUserFromDb.name
+    })
+
+    res.status(200).json({
+        msg: 'success',
+        data: findUserFromDb,
+        messageData: findMessages
+})
+})
+
 router.get('/userProfile',async(req,res)=>{
     const username = req.query.username 
     console.log(username)
@@ -109,7 +133,7 @@ router.get('/userProfile',async(req,res)=>{
         msg: 'success',
         data: findUserFromDb,
         messageData: findMessages
-    })
+})
 })
 
 //to post message on app
@@ -127,7 +151,9 @@ router.post('/sendMessage',async (req,res)=>{
 
     const uploadMessage = await db.messageModel.create({
         username: findUser.username,
-        message: messageData.message
+        name: messageData.name,
+        message: messageData.message,
+        image: messageData.image
     })
 
     res.status(200).json({
@@ -168,7 +194,7 @@ router.get('/allUsers',async(req,res)=>{
 
 router.get('/suggestedUsers',async(req,res)=>{
 
-    const Allusers = await db.userModel.find().limit(5)
+    const Allusers = await db.userModel.find().sort({ _id: 1 }).limit(5)
 
     res.status(200).json({
         msg: 'success',
@@ -186,5 +212,32 @@ router.get('/retriveMessages',async(req,res)=>{
     })
 
 })
+
+router.put('/editProfile',async(req,res)=>{
+    const username = req.query.username 
+
+    const userData = {
+        name: req.body.name,
+        bio: req.body.bio,
+        username: req.body.username,
+        profilePic: req.body.profilePic
+    }
+
+    const getUser = await db.userModel.updateOne({
+        username: username
+    },
+    {
+        name: userData.name,
+        bio: req.body.bio,
+        username: req.body.username,
+        profilePic: req.body.profilePic
+    })
+
+    res.status(200).json({
+        msg:'success',
+        userData: userData
+    })
+})
+
 
 module.exports = router

@@ -4,20 +4,21 @@ import { useLocation } from "react-router-dom"
 import Header from "../Components/Header"
 import Nav from "../Components/NavBar"
 import Suggest from "../Components/Suggested";
-import PostLogic from "../Components/PostComp"
+import ProfileData from "../Components/ProfileComp"
+import AllProfileData from "../Components/AllProfiles"
 
-const Post =()=>{
+const AllProfile =()=>{
     return(
-        <div className="bg-slate-200 text-slate-900">
+<div className="bg-slate-200 text-slate-900">
          <Header/>
     <div className="md:w-[100%]  md:flex md:justify-between">
          <div className="w-[18%]">
            <Nav/>
         </div> 
 
-        <div className="md:w-[57%]">
-         <p className="md:text-[25px] md:ml-7">Post</p>
-             <PostLogic/>
+         <div className='md:w-[57%]'>
+         <p className="md:text-[25px] md:ml-7">Profile</p>
+             <AllProfileData/>
          </div>
 
          <div className="md:w-[25%]">
@@ -28,4 +29,4 @@ const Post =()=>{
     )
 }
 
-export default Post
+export default AllProfile

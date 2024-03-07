@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
-import { useLocation, useNavigate } from "react-router-dom"
+import { useLocation } from "react-router-dom"
 import UserMsgs from "./UserMessages"
 
-const ProfileData = ()=>{
+const AllProfileData = ()=>{
     return(
         <>
             <UserBox/>
@@ -24,7 +24,7 @@ const UserBox = ()=>{
 
     
     useEffect(()=>{
-        const userData = fetch(`http://localhost:3000/api/v1/user/userProfile?username=${username}`)
+        const userData = fetch(`http://localhost:3000/api/v1/user/AlluserProfile?name=${name}`)
         .then(async(res)=>{
             const data = await res.json()
             setUser(data.data.name)
@@ -47,14 +47,6 @@ const UserBox = ()=>{
 }
 
 const MainprofileComp = ({user,nickname,message,profile})=>{
-
-const navigate = useNavigate()
-
-const handleEdit = ()=>{
-     navigate('/EditProfile',{state:{username:nickname,name:user,bio:message,profilePic:profile}})
-}
-
-
     return(
         <div className="flex justify-center items-center mb-5">
 <div className=" bg-slate-300 text-slate-900 shadow-lg md:w-[90%] pt-5 md:flex md:flex-col rounded-lg mt-5">
@@ -66,7 +58,7 @@ const handleEdit = ()=>{
                <p>@{nickname}</p>
                </div>
             </div>
-            <button onClick={handleEdit}>Edit</button>
+            <button className="">Follow</button>
     </div>
     <p className="ml-10 pt-5 pb-5">{message}</p>
 </div>
@@ -75,4 +67,4 @@ const handleEdit = ()=>{
 }
 
 
-export default ProfileData
+export default AllProfileData

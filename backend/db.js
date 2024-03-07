@@ -12,7 +12,9 @@ const userSchema = mongoose.Schema({
 
 const messageSchema = mongoose.Schema({
     username: String,
-    message: String
+    message: String,
+    name: String,
+    image: String
 })
 
 const userModel = mongoose.model('signupData',userSchema)

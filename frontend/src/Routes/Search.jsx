@@ -8,14 +8,15 @@ import SearchUsers from "../Components/SearchComp"
 
 const Search =()=>{
     return(
-    <>
+        <div className="bg-slate-200 text-slate-900">
          <Header/>
     <div className="md:w-[100%]  md:flex md:justify-between">
          <div className="w-[18%]">
            <Nav/>
         </div> 
 
-         <div>
+        <div className="md:w-[57%]">
+         <p className="md:text-[25px] md:ml-7">Search</p>
              <SearchUsers/>
          </div>
 
@@ -23,7 +24,7 @@ const Search =()=>{
              <Suggest/>
          </div>
     </div>
-    </>
+    </div>
     )
 }
 

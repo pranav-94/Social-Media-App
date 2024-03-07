@@ -8,7 +8,7 @@ import HomeContent from "../Components/HomeComp"
 
 const Home =()=>{
     return(
-    <>
+    <div className="bg-slate-200 text-slate-900 ">
          <Header/>
     <div className="md:w-[100%]  md:flex md:justify-between">
          <div className="w-[18%]">
@@ -16,6 +16,7 @@ const Home =()=>{
         </div> 
 
          <div className="md:w-[57%]">
+         <p className="md:text-[25px] md:ml-7">Home</p>
              <HomeContent/>
          </div>
 
@@ -23,7 +24,7 @@ const Home =()=>{
              <Suggest/>
          </div>
     </div>
-    </>
+    </div>
     )
 }
 

@@ -23,5 +23,6 @@ To upload messages -
 
 create new schema model
 
-frontend problems - 
-1) 
+so now the problem is when i click on view other's profile i'm getting logged in into their account
+
+thinkable solution is to give other's different profile route

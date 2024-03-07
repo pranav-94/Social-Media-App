@@ -2,11 +2,11 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
 
-const GettingInfo = ()=>{
+const GetInfo = ()=>{
     return(
         <div className="w-[100%] h-[100vh] flex justify-center items-center flex-wrap bg-slate-200">
         <div className="w-[500px] h-[500px] flex flex-wrap flex-col justify-evenly bg-slate-900 text-slate-200 pl-5 pr-5 items-center shadow-lg rounded-lg">
-            <p className="text-[17px] mb-5  ">Complete your profile now to use this app</p>
+            <p className="text-[22px] font-semibold text-slate-300 mb-5  ">Edit Profile</p>
 
             <UserImg/>
         </div>
@@ -17,6 +17,7 @@ const GettingInfo = ()=>{
 const UserImg =()=>{
 
     const [img,setImg] = useState('')
+    const location = useLocation()
 
     return(
     <>
@@ -25,30 +26,40 @@ const UserImg =()=>{
           <input className="outline-none bg-slate-900 pb-4  border-b-2 w-[280px] h-[30px] border-slate-400 hover:border-green-500" type="text" placeholder="Enter pic url" onChange={e=>{setImg(e.target.value)}}/>
        </div>
 
-       <UserForm image={img}/>
+       <UserForm image={img} setImage={setImg}/>
     </>
     )
 }
 
-const UserForm = ({image})=>{
+const UserForm = ({image,setImage})=>{
 
-    const [name,setName] = useState('')
-    const[bio,setBio] = useState('')
     const location = useLocation()
     const user = location.state.username
+    const Name = location.state.name
+    const profilePic = location.state.profilePic
+    const Bio = location.state.bio
+    const [name,setName] = useState('')
+    const[bio,setBio] = useState('')
     const navigate = useNavigate()
 
-    console.log(user)
+    console.log(location)
+    console.log(image)
+
+    if(name === '' && bio === '' && image === ''){
+        setName(Name)
+        setBio(Bio)
+        setImage(profilePic)
+    }
 
     const updateInfo = async()=>{
-            const update = await axios.put(`http://localhost:3000/api/v1/user/onBoarding?username=${user}`,{
+            const update = await axios.put(`http://localhost:3000/api/v1/user/editProfile?username=${user}`,{
                 name: name,
                 bio: bio,
                 profilePic: image
             })
             console.log(update)
 
-            navigate('/home',{state:{username:user}})
+            navigate('/profile',{state:{username:user}})
 
     }
 
@@ -61,5 +72,5 @@ const UserForm = ({image})=>{
     )
 }
 
-export default GettingInfo
+export default GetInfo
 

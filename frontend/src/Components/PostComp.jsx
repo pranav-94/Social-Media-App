@@ -1,5 +1,5 @@
 import axios from "axios"
-import { useState } from "react"
+import { useState,useEffect } from "react"
 import { useLocation } from "react-router-dom"
 
 const PostLogic = ()=>{
@@ -8,11 +8,26 @@ const PostLogic = ()=>{
     const username = location.state.username
     console.log(username)
     const [message,setMessage] = useState('')
+    const[nickname,setNickname] = useState('')
+    const[img,setImg] = useState('')
+
+    useEffect(()=>{
+        const userData = fetch(`http://localhost:3000/api/v1/user/userProfile?username=${username}`)
+        .then(async(res)=>{
+            const data = await res.json()
+            setNickname(data.data.name)
+            setImg(data.data.profilePic)
+        })
+    },[])
+
+    console.log(nickname)
 
     const handlePost=async ()=>{
     const sendPost = await axios.post('http://localhost:3000/api/v1/user/sendmessage',{
     username: username,
-    message: message
+    message: message,
+    name: nickname,
+    image: img
   })
   console.log(sendPost)
 }
@@ -20,10 +35,10 @@ const PostLogic = ()=>{
 console.log(message)
 
     return(
-        <>
-        <input className="md:w-[300px] md:h-[400px] bg-green-300" type="text" placeholder="send message here" onChange={e=>{setMessage(e.target.value)}}/>
-        <button onClick={handlePost}>Post Message</button>
-        </>
+        <div className="md:flex md:flex-col md:justify-evenly md:h-[350px]  md:items-center">
+        <input className="md:w-[500px]  md:h-[250px] bg-slate-300 " type="text" onChange={e=>{setMessage(e.target.value)}}/>
+        <button className="bg-slate-900 text-slate-200 w-[150px] h-[40px] rounded-lg text-[17px]" onClick={handlePost}>Post</button>
+        </div>
     )
 }
 
