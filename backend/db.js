@@ -1,5 +1,7 @@
 const mongoose  = require('mongoose')
-mongoose.connect('mongodb+srv://ppranavvvvv918:GQgevmBgXsGBWpGd@cluster0.ig1ix5w.mongodb.net/SocialMediaApp')
+mongoose.connect(`${process.env.DBURL}`).then(()=>{
+    console.log('db got connected')
+})
 
 const userSchema = mongoose.Schema({
     username: String,
