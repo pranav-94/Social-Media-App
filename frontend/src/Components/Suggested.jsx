@@ -12,7 +12,7 @@ const Suggest = ()=>{
 
     useEffect(()=>{
         const handleData = async()=>{
-         const showAccs = await axios.get('http://localhost:3000/api/v1/user/suggestedUsers')
+         const showAccs = await axios.get('https://social-media-app-fekd.onrender.com/api/v1/user/suggestedUsers')
      setUser(showAccs.data.data)
         }
      handleData()

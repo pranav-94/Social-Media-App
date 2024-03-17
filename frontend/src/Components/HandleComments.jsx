@@ -32,7 +32,7 @@ const CommentCard = ()=>{
     const Username = (location.state.username)
 
     const handlePost = async()=>{
-    const addComment = await axios.post('http://localhost:3000/api/v1/user/comments',{
+    const addComment = await axios.post('https://social-media-app-fekd.onrender.com/api/v1/user/comments',{
         id: id,
         comment: comment,
         username: location.state.username

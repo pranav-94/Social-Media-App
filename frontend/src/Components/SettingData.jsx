@@ -25,7 +25,7 @@ const navigate = useNavigate()
         icon: 'error'
        }).then(async(result)=>{
           if(result.isConfirmed){
-           const deleteUser = await axios.delete(`http://localhost:3000/api/v1/user/deleteUser?username=${username}`)
+           const deleteUser = await axios.delete(`https://social-media-app-fekd.onrender.com/api/v1/user/deleteUser?username=${username}`)
            console.log(deleteUser)
            navigate('/')
           }

@@ -12,7 +12,7 @@ const SearchUsers = ()=>{
 
 
 useEffect(()=>{
-    fetch('http://localhost:3000/api/v1/user/allusers')
+    fetch('https://social-media-app-fekd.onrender.com/api/v1/user/allusers')
     .then(async(res)=>{
         const users = await res.json()
         setUserData(users.data)
