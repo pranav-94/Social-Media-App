@@ -41,7 +41,7 @@ const CommentCard = ()=>{
 }
     
 useEffect(()=>{
-    const getComments = fetch(`http://localhost:3000/api/v1/user/retriveComments?id=${id}`).then(async(res)=>{
+    const getComments = fetch(`https://social-media-app-fekd.onrender.com/api/v1/user/retriveComments?id=${id}`).then(async(res)=>{
        const result = await res.json()
        setArr(result.data)
        console.log(result.data)
