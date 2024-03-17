@@ -9,7 +9,7 @@ const Header =()=>{
   const [profilePic , setProfilePic] = useState('')
 
   useEffect(()=>{
-    const userImg = fetch(`http://localhost:3000/api/v1/user/userProfile?username=${username}`)
+    const userImg = fetch(`https://social-media-app-fekd.onrender.com/api/v1/user/userProfile?username=${username}`)
     .then(async(res)=>{
         const data = await res.json()
         setProfilePic(data.data.profilePic)
