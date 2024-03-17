@@ -1,5 +1,5 @@
 const mongoose  = require('mongoose')
-mongoose.connect('mongodb://127.0.0.1:27017/SocialMediaApp')
+mongoose.connect('mongodb+srv://ppranavvvvv918:GQgevmBgXsGBWpGd@cluster0.ig1ix5w.mongodb.net/SocialMediaApp')
 
 const userSchema = mongoose.Schema({
     username: String,
