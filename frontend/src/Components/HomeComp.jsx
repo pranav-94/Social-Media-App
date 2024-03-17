@@ -7,7 +7,7 @@ const HomeContent = ()=>{
     const [arr,setArr] = useState([])
     
     useEffect(()=>{
-        const messages = fetch('http://localhost:3000/api/v1/user/retriveMessages').then(async(res)=>{
+        const messages = fetch('https://social-media-app-fekd.onrender.com/api/v1/user/retriveMessages').then(async(res)=>{
             const msgData= await res.json()
             console.log(msgData)
             setArr(msgData.data)
