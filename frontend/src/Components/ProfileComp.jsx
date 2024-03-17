@@ -13,7 +13,7 @@ const ProfileData = ()=>{
 const UserBox = ()=>{
 
     const location = useLocation()
-    const username = location.state.username 
+    const Username = location.state.username 
     const name = location.state.name
     const[user,setUser] = useState('')
     const[profile,setProfile] = useState('')
@@ -24,7 +24,7 @@ const UserBox = ()=>{
 
     
     useEffect(()=>{
-        const userData = fetch(`https://social-media-app-fekd.onrender.com/api/v1/user/userProfile?username=${username}`)
+        const userData = fetch(`http://localhost:3000/api/v1/user/userProfile?username=${Username}`)
         .then(async(res)=>{
             const data = await res.json()
             setUser(data.data.name)
@@ -40,7 +40,14 @@ const UserBox = ()=>{
         <div>
             <MainprofileComp user={user} nickname={nickname} message={message} profile={profile}/>
 
-            <UserMsgs arr={arr} profile={profile} nickname={nickname}/>
+            <div className="flex justify-center items-center flex-col">
+            {
+                    arr.map((messages)=>{
+                        return (
+             <UserMsgs  profilePic={messages.image} name={messages.name} username={messages.username} messages={messages.message} Username={Username} id={messages._id}/>
+                    )})
+        }
+        </div>
             
         </div>
     )
@@ -57,8 +64,8 @@ const handleEdit = ()=>{
 
     return(
         <div className="flex justify-center items-center mb-5">
-<div className=" bg-slate-300 text-slate-900 shadow-lg md:w-[90%] pt-5 md:flex md:flex-col rounded-lg mt-5">
-           <div className=" md:flex md:justify-around">
+<div className=" bg-slate-300 text-slate-900 shadow-2xl md:w-[90%] pt-5 md:flex md:flex-col rounded-lg mt-5">
+           <div className=" md:flex md:justify-evenly md:items-center">
             <div className="md:w-[70%] md:flex md:justify-start md:items-center">
               <img className="w-[130px] h-[130px] rounded-full" src={profile} alt="" />
               <div className="flex flex-col mb-10 ml-5">
@@ -66,7 +73,7 @@ const handleEdit = ()=>{
                <p>@{nickname}</p>
                </div>
             </div>
-            <button onClick={handleEdit}>Edit</button>
+            <button className="bg-slate-900 text-slate-200 w-[80px] h-[40px] rounded-lg" onClick={handleEdit}>Edit</button>
     </div>
     <p className="ml-10 pt-5 pb-5">{message}</p>
 </div>

@@ -1,4 +1,5 @@
 import AllProfile from "./Routes/AllProfile";
+import Comments from "./Routes/Comments";
 import GetInfo from "./Routes/EditProfile";
 import Home from "./Routes/Home";
 import Post from "./Routes/Post";
@@ -34,7 +35,7 @@ const RouterLogic = ()=>{
         <Route path="/setttings" Component={Settings}/>
         <Route path="/otherProfile" Component={AllProfile}/>
         <Route path="/EditProfile" Component={GetInfo}/>
-
+        <Route path="/comments" Component={Comments}/>
       </Routes>
     </Router>
     </>

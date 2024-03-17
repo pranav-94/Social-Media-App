@@ -8,7 +8,7 @@ import ProfileData from "../Components/ProfileComp"
 
 const Profile =()=>{
     return(
-<div className="bg-slate-200 text-slate-900">
+<div className="bg-slate-200 text-slate-900 ">
          <Header/>
     <div className="md:w-[100%]  md:flex md:justify-between">
          <div className="w-[18%]">

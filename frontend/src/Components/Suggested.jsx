@@ -12,7 +12,7 @@ const Suggest = ()=>{
 
     useEffect(()=>{
         const handleData = async()=>{
-         const showAccs = await axios.get('https://social-media-app-fekd.onrender.com/api/v1/user/suggestedUsers')
+         const showAccs = await axios.get('http://localhost:3000/api/v1/user/suggestedUsers')
      setUser(showAccs.data.data)
         }
      handleData()
@@ -24,7 +24,7 @@ const Suggest = ()=>{
 
     return(
         <>
-           <div className='md:w-[100%] md:h-[100vh]  md:flex md:flex-col md:justify-evenly md:items-center sticky top-0 bg-slate-200 text-slate-900 hidden'>
+           <div className='md:w-[100%] md:mt-[50px] md:h-[100vh]  md:flex md:flex-col md:justify-evenly md:items-center sticky top-0 bg-slate-200 text-slate-900 hidden'>
             <p>Suggested Users</p>
                <div>
                 {

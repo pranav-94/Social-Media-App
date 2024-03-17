@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react"
-import { useLocation } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import UserMsgs from "./UserMessages"
 
 const HomeContent = ()=>{
 
     const [arr,setArr] = useState([])
+    const navigate = useNavigate()
+    const location = useLocation()
+    const Username = location.state.username
     
     useEffect(()=>{
-        const messages = fetch('https://social-media-app-fekd.onrender.com/api/v1/user/retriveMessages').then(async(res)=>{
+        const messages = fetch('http://localhost:3000/api/v1/user/retriveMessages').then(async(res)=>{
             const msgData= await res.json()
             console.log(msgData)
             setArr(msgData.data)
@@ -15,10 +18,19 @@ const HomeContent = ()=>{
     },[])
 
     return(
-        <>
-             <UserMsgs arr={arr}/>
-        </>
+        <div className="flex justify-center items-center flex-col">
+            {
+                    arr.map((messages)=>{
+                        return (
+             <UserMsgs  profilePic={messages.image} name={messages.name} username={messages.username} messages={messages.message} Username={Username} id={messages._id}/>
+                    )})
+        }
+        </div>
     )
 }
 
 export default HomeContent
+
+
+
+"md:w-[90%] bg-slate-300 hover:bg-slate-400 text-slate-900  pt-8 md:flex shadow-lg rounded-lg mt-5 mb-5 pb-8 md:justify-center pointer md:items-start transition-all ease-in-out duration-300"

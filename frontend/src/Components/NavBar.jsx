@@ -51,7 +51,7 @@ const NavComponent = ()=>{
             <button className="hover:bg-slate-900 hover:text-slate-200 w-[180px] font-semibold h-[50px] rounded-lg transition-all ease-in-out duration-500" onClick={searchUser}>Search</button>
             <button className="hover:bg-slate-900 hover:text-slate-200 w-[180px] font-semibold h-[50px] rounded-lg transition-all ease-in-out duration-500" onClick={Post}>Post</button>
             <button className="hover:bg-slate-900 hover:text-slate-200 w-[180px] font-semibold h-[50px] rounded-lg transition-all ease-in-out duration-500" onClick={Profile}>Profile</button>
-            <button className="hover:bg-slate-900 hover:text-slate-200 w-[180px] font-semibold h-[50px] rounded-lg transition-all ease-in-out duration-500" onClick={Profile}>Settings</button>
+            <button className="hover:bg-slate-900 hover:text-slate-200 w-[180px] font-semibold h-[50px] rounded-lg transition-all ease-in-out duration-500" onClick={Settings}>Settings</button>
             
         </div>
         <div className="md:h-[20vh] md:flex md:justify-center md:items-center">

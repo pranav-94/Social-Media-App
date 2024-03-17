@@ -1,15 +1,16 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { useLocation } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 
 const Header =()=>{
   
   const location = useLocation()
   const username = location.state.username
   const [profilePic , setProfilePic] = useState('')
+  const navigate = useNavigate()
 
   useEffect(()=>{
-    const userImg = fetch(`https://social-media-app-fekd.onrender.com/api/v1/user/userProfile?username=${username}`)
+    const userImg = fetch(`http://localhost:3000/api/v1/user/userProfile?username=${username}`)
     .then(async(res)=>{
         const data = await res.json()
         setProfilePic(data.data.profilePic)

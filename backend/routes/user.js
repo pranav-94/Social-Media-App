@@ -1,6 +1,7 @@
 const express = require('express')
 const validateData = require('../zod')
 const db = require('../db')
+const multer = require('multer')
 const jwtSec = require('../secret')
 const jwt = require('jsonwebtoken')
 
@@ -153,7 +154,8 @@ router.post('/sendMessage',async (req,res)=>{
         username: findUser.username,
         name: messageData.name,
         message: messageData.message,
-        image: messageData.image
+        image: messageData.image,
+        id: findUser._id
     })
 
     res.status(200).json({
@@ -194,7 +196,7 @@ router.get('/allUsers',async(req,res)=>{
 
 router.get('/suggestedUsers',async(req,res)=>{
 
-    const Allusers = await db.userModel.find().sort({ _id: 1 }).limit(5)
+    const Allusers = await db.userModel.find().sort({ _id: 1 }).limit(3)
 
     res.status(200).json({
         msg: 'success',
@@ -238,6 +240,86 @@ router.put('/editProfile',async(req,res)=>{
         userData: userData
     })
 })
+
+router.delete('/deleteUser',async(req,res)=>{
+    const username = req.query.username 
+
+     const dUserInfo = await db.userModel.deleteOne({
+        username: username
+     })
+
+     const dPostInfo = await db.messageModel.deleteMany({
+        username : username
+     })
+
+     res.status(200).json({
+        msg: 'success',
+        userInfo: dUserInfo,
+        messageInfo: dPostInfo
+     })
+
+})
+
+router.post('/comments',async(req,res)=>{
+      
+    const userData = req.body 
+
+    const findMessage =await db.messageModel.findOne({
+        _id: userData.id
+    })
+
+    const userMsg = await db.userModel.findOne({
+        username: userData.username
+    })
+    console.log(userMsg)
+
+    if(!findMessage){
+        res.status(403).json({
+            msg: 'message not found'
+        })
+        return
+    }
+
+    const createComment =await db.commentModel.create({
+        id: findMessage._id,
+        comment: userData.comment,
+        username: userMsg.username,
+        name: userMsg.name,
+        profilePic: userMsg.profilePic
+    })
+
+    res.status(200).json({
+        msg:'success',
+        data: createComment
+    })
+})
+
+router.get('/retriveComments',async(req,res)=>{
+     const id = req.query.id 
+
+     const comments =await db.commentModel.find({
+        id: id
+     })
+
+    //  if(comments.length === 0){
+    //     res.json({
+    //         msg: 'no comments'
+    //     })
+    //  }
+
+     res.status(200).json({
+        msg: 'success',
+        data: comments
+     })
+})
+
+// router.post('/likeCount',(req,res)=>{
+//     const likeState = req.query.like
+
+//     if(likeState === true){
+       
+//     }
+// })
 
 
 module.exports = router

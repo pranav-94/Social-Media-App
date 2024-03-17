@@ -37,7 +37,7 @@ const SignInUser = ()=>{
         <input type="text" className="outline-none bg-slate-900 pb-4  border-b-2 w-[280px] h-[30px] border-slate-400 hover:border-green-500" placeholder="password" onChange={e=>{setPassword(e.target.value)}}/>
 
         <button className="bg-green-500 w-[280px] h-[40px] rounded-lg text-[17px]" onClick={addUser}>Sign In</button>
-        <p>Don't have an account <Link to='/'>Sign Up</Link></p>
+        <p>Don't have an account? <Link to='/'>Sign Up</Link></p>
 
         </div>
     )
