@@ -17,7 +17,7 @@ const SignInUser = ()=>{
     const navigate = useNavigate()
 
     const addUser = async()=>{
-        const signInRes = await axios.post('https://social-media-app-gilt-omega.vercel.app/api/v1/user/signIn',{
+        const signInRes = await axios.post('https://social-media-app-fekd.onrender.com/api/v1/user/signIn',{
             email: email,
             password: password
         })
