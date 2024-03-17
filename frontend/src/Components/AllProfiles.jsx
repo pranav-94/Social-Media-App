@@ -24,7 +24,7 @@ const UserBox = ()=>{
 
     
     useEffect(()=>{
-        const userData = fetch(`http://localhost:3000/api/v1/user/AlluserProfile?name=${name}`)
+        const userData = fetch(`https://social-media-app-fekd.onrender.com/api/v1/user/AlluserProfile?name=${name}`)
         .then(async(res)=>{
             const data = await res.json()
             setUser(data.data.name)
