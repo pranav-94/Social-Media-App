@@ -59,7 +59,7 @@ const UserForm = ({image,setImage})=>{
             })
             console.log(update)
 
-            navigate('/profile',{state:{username:user}})
+            navigate('/profile',{state:{username:localStorage.getItem("username")}})
 
     }
 

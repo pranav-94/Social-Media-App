@@ -13,8 +13,9 @@ const AllProfileData = ()=>{
 const UserBox = ()=>{
 
     const location = useLocation()
-    const Username = location.state.username 
+    const Username = localStorage.getItem("username")
     const name = location.state.name
+    console.log(name)
     const[user,setUser] = useState('')
     const[profile,setProfile] = useState('')
     const[nickname,setNickname] = useState('')

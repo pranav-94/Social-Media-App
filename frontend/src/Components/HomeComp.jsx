@@ -7,7 +7,7 @@ const HomeContent = ()=>{
     const [arr,setArr] = useState([])
     const navigate = useNavigate()
     const location = useLocation()
-    const Username = location.state.username
+    const Username = localStorage.getItem("username")
     
     useEffect(()=>{
         const messages = fetch('https://social-media-app-fekd.onrender.com/api/v1/user/retriveMessages').then(async(res)=>{

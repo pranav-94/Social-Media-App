@@ -8,7 +8,7 @@ const SearchUsers = ()=>{
     const[query,setQuery] = useState('')
     const navigate = useNavigate()
     const location = useLocation()
-    const Username = location.state.username
+    const Username = localStorage.getItem("username")
 
 
 useEffect(()=>{

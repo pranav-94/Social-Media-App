@@ -48,7 +48,7 @@ const UserForm = ({image})=>{
             })
             console.log(update)
 
-            navigate('/home',{state:{username:user}})
+            navigate('/home',{state:{username:localStorage.getItem("username")}})
 
     }
 

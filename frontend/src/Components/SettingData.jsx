@@ -13,7 +13,7 @@ const SettingsData = ()=>{
 const DeleteAccount = ()=>{
    
 const location = useLocation()
-const username = location.state.username
+const username = localStorage.getItem("username")
 const navigate = useNavigate()
 
 

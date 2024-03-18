@@ -5,7 +5,7 @@ import { useAsyncError, useLocation } from "react-router-dom"
 const PostLogic = ()=>{
 
     const location = useLocation()
-    const username = location.state.username
+    const username = localStorage.getItem("username")
     console.log(username)
     const [message,setMessage] = useState('')
     const[nickname,setNickname] = useState('')

@@ -13,34 +13,34 @@ const NavComponent = ()=>{
     const location = useLocation()
 
     const searchUser = ()=>{
-        const username = location.state.username
+        const username = localStorage.getItem("username")
         const userId = location.state.userId
         console.log(username)
-        navigate('/search',{state:{username:username,userId: userId}})
+        navigate('/search',{state:{username:localStorage.getItem("username"),userId: userId}})
     }
 
     const Home = ()=>{
         const username = location.state.username
         console.log(username)
-        navigate('/home',{state:{username:username}})
+        navigate('/home',{state:{username:localStorage.getItem("username")}})
     }
 
     const Profile = ()=>{
         const username = location.state.username
         console.log(username)
-        navigate('/profile',{state:{username:username}})
+        navigate('/profile',{state:{username:localStorage.getItem("username")}})
     }
 
     const Post = ()=>{
         const username = location.state.username
         console.log(username)
-        navigate('/post',{state:{username:username}})
+        navigate('/post',{state:{username:localStorage.getItem("username")}})
     }
 
     const Settings = ()=>{
         const username = location.state.username
         console.log(username)
-        navigate('/setttings',{state:{username:username}})
+        navigate('/setttings',{state:{username:localStorage.getItem("username")}})
     }
 
     return(

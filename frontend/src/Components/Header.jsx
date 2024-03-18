@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from "react-router-dom"
 const Header =()=>{
   
   const location = useLocation()
-  const username = location.state.username
+  const username = localStorage.getItem("username")
   const [profilePic , setProfilePic] = useState('')
   const navigate = useNavigate()
 

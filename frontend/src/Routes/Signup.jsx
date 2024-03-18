@@ -29,7 +29,9 @@ const addUser = async()=>{
 
     //Redirect to next route if success
     if(res.data.msg === 'success'){
-        navigate(`/processing`,{state: {username:res.data.data.username }})
+        localStorage.setItem("username", res.data.data.username)
+        localStorage.setItem("name",res.data.data.name)
+        navigate(`/processing`,{state: {username:localStorage.getItem("username") }})
         return
     }
 }

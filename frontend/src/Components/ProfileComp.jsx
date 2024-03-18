@@ -13,7 +13,7 @@ const ProfileData = ()=>{
 const UserBox = ()=>{
 
     const location = useLocation()
-    const Username = location.state.username 
+    const Username = localStorage.getItem("username")
     const name = location.state.name
     const[user,setUser] = useState('')
     const[profile,setProfile] = useState('')

@@ -29,7 +29,7 @@ const CommentCard = ()=>{
     const navigate = useNavigate()
     const id = location.state.id
     console.log(id)
-    const Username = (location.state.username)
+    const Username = localStorage.getItem("username")
 
     const handlePost = async()=>{
     const addComment = await axios.post('https://social-media-app-fekd.onrender.com/api/v1/user/comments',{

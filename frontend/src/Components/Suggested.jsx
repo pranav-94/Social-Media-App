@@ -7,7 +7,7 @@ const Suggest = ()=>{
 
     const [user,setUser] = useState([])
     const location = useLocation()
-    const Username = location.state.username
+    const Username = localStorage.getItem("username")
     const navigate = useNavigate()
 
     useEffect(()=>{
@@ -38,7 +38,7 @@ const Suggest = ()=>{
                          <p>@{item.username}</p>
                             </div>
                             <button onClick={()=>{
-                                 navigate('/otherProfile',{state:{username:Username,name:item.name}}) 
+                                 navigate('/otherProfile',{state:{username:localStorage.getItem("username"),name:item.name}}) 
                             }} className="w-[70px] h-[30px] rounded-md bg-slate-200 text-slate-900">View
                           </button>
                          </div>
