@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 4000
 
 app.use(express.json())
 app.use(cors({
-    origin:["social-media-app-gilt-omega.vercel.app/"],
+    origin:["social-media-app-gilt-omega.vercel.app"],
     methods: ["POST","GET"],
     credentials: true
 }))
