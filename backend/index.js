@@ -7,7 +7,11 @@ const cors = require('cors')
 const PORT = process.env.PORT || 4000
 
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+    origin:["social-media-app-gilt-omega.vercel.app/"],
+    methods: ["POST","GET"],
+    credentials: true
+}))
 app.use('/api/v1',userRouter)
 
 app.get('/',(req,res)=>{
