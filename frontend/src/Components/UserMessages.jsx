@@ -25,7 +25,7 @@ const UserMsgs = ({profilePic,name,username,messages,Username,id})=>{
                 navigate('/otherProfile',{state:{username:Username,name:name}})
             }} className="mb-3 cursor-pointer">@{username}</p>
                     <p className="cursor-pointer" onClick={()=>{
-        navigate('/comments',{state:{username:Username,name:name,profilePic:profilePic,message:messages,Username:username,id:id}})
+        navigate('/comments',{state:{username:Username,name:name,profilePic:profilePic,message:messages,Username:username,id:id}}) 
     }}>{messages}</p>  
     {/* <div className="md:flex md:justify-between md:mt-7 cursor-pointer">
     <p onClick={handleLikes}>Likes</p>

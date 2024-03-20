@@ -26,7 +26,7 @@ const SignInUser = ()=>{
             console.log(signInRes.data.user.name)
            localStorage.setItem("username", signInRes.data.user.username)
            localStorage.setItem("name",signInRes.data.user.name)
-            navigate('/home',{state: {username: localStorage.getItem("username")}})
+           navigate('/home')
             return
         }
     }

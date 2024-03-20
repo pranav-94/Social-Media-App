@@ -35,7 +35,7 @@ const UserForm = ({image})=>{
     const [name,setName] = useState('')
     const[bio,setBio] = useState('')
     const location = useLocation()
-    const user = location.state.username
+    const user = localStorage.getItem("username")
     const navigate = useNavigate()
 
     console.log(user)
@@ -48,7 +48,7 @@ const UserForm = ({image})=>{
             })
             console.log(update)
 
-            navigate('/home',{state:{username:localStorage.getItem("username")}})
+            navigate('/home')
 
     }
 

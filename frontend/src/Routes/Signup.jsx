@@ -31,7 +31,7 @@ const addUser = async()=>{
     if(res.data.msg === 'success'){
         localStorage.setItem("username", res.data.data.username)
         localStorage.setItem("name",res.data.data.name)
-        navigate(`/processing`,{state: {username:localStorage.getItem("username") }})
+        navigate('/processing')
         return
     }
 }

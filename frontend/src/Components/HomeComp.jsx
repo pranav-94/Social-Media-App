@@ -6,7 +6,6 @@ const HomeContent = ()=>{
 
     const [arr,setArr] = useState([])
     const navigate = useNavigate()
-    const location = useLocation()
     const Username = localStorage.getItem("username")
     
     useEffect(()=>{
@@ -30,7 +29,3 @@ const HomeContent = ()=>{
 }
 
 export default HomeContent
-
-
-
-"md:w-[90%] bg-slate-300 hover:bg-slate-400 text-slate-900  pt-8 md:flex shadow-lg rounded-lg mt-5 mb-5 pb-8 md:justify-center pointer md:items-start transition-all ease-in-out duration-300"
