@@ -15,7 +15,6 @@ const UserBox = ()=>{
     const location = useLocation()
     const Username = localStorage.getItem("username")
     const name = location.state.name
-    console.log(name)
     const[user,setUser] = useState('')
     const[profile,setProfile] = useState('')
     const[nickname,setNickname] = useState('')
@@ -29,7 +28,6 @@ const UserBox = ()=>{
         .then(async(res)=>{
             const data = await res.json()
             setUser(data.data.name)
-            console.log(data.data.name)
             setArr(data.messageData)
             setProfile(data.data.profilePic)
             setNickname(data.data.username)

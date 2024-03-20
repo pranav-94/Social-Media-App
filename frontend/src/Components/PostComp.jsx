@@ -6,7 +6,6 @@ const PostLogic = ()=>{
 
     const location = useLocation()
     const username = localStorage.getItem("username")
-    console.log(username)
     const [message,setMessage] = useState('')
     const[nickname,setNickname] = useState('')
     const[img,setImg] = useState('')

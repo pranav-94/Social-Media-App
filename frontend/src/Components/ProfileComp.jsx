@@ -28,7 +28,6 @@ const UserBox = ()=>{
         .then(async(res)=>{
             const data = await res.json()
             setUser(data.data.name)
-            console.log(data.data.name)
             setArr(data.messageData)
             setProfile(data.data.profilePic)
             setNickname(data.data.username)

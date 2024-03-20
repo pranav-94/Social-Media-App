@@ -14,7 +14,6 @@ const HandleComment = ()=>{
 
 const MessageCard = ()=>{
      const location = useLocation()
-     console.log(location)
 
      return(
         <UserMsgs profilePic={location.state.profilePic} name={location.state.name} username={location.state.Username} messages={location.state.message} Username={location.state.username} />
@@ -28,7 +27,6 @@ const CommentCard = ()=>{
     const location = useLocation()
     const navigate = useNavigate()
     const id = location.state.id
-    console.log(id)
     const Username = localStorage.getItem("username")
 
     const handlePost = async()=>{
@@ -44,7 +42,6 @@ useEffect(()=>{
     const getComments = fetch(`https://social-media-app-fekd.onrender.com/api/v1/user/retriveComments?id=${id}`).then(async(res)=>{
        const result = await res.json()
        setArr(result.data)
-       console.log(result.data)
     })
 },[])
 

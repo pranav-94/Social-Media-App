@@ -18,7 +18,6 @@ const navigate = useNavigate()
 
 
     const handleDelete = ()=>{
-        console.log('elete')
        Swal.fire({
         title: 'Delete Account',
         text: 'This is the last time you can change your mind. After pressing the button everything is gone.',
@@ -26,7 +25,6 @@ const navigate = useNavigate()
        }).then(async(result)=>{
           if(result.isConfirmed){
            const deleteUser = await axios.delete(`https://social-media-app-fekd.onrender.com/api/v1/user/deleteUser?username=${username}`)
-           console.log(deleteUser)
            navigate('/')
           }
        })

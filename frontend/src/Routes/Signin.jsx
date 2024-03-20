@@ -23,7 +23,6 @@ const SignInUser = ()=>{
         })
         console.log(signInRes.data.user.username)
         if(signInRes.data.msg === 'sign in successful'){
-            console.log(signInRes.data.user.name)
            localStorage.setItem("username", signInRes.data.user.username)
            localStorage.setItem("name",signInRes.data.user.name)
            navigate('/home')

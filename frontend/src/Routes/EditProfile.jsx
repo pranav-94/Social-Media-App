@@ -42,9 +42,6 @@ const UserForm = ({image,setImage})=>{
     const[bio,setBio] = useState('')
     const navigate = useNavigate()
 
-    console.log(location)
-    console.log(image)
-
     if(name === '' && bio === '' && image === ''){
         setName(Name)
         setBio(Bio)
@@ -57,7 +54,6 @@ const UserForm = ({image,setImage})=>{
                 bio: bio,
                 profilePic: image
             })
-            console.log(update)
 
             navigate('/profile',{state:{username:localStorage.getItem("username")}})
 

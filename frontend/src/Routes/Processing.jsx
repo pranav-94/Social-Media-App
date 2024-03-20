@@ -38,15 +38,12 @@ const UserForm = ({image})=>{
     const user = localStorage.getItem("username")
     const navigate = useNavigate()
 
-    console.log(user)
-
     const updateInfo = async()=>{
             const update = await axios.put(`http://localhost:3000/api/v1/user/onBoarding?username=${user}`,{
                 name: name,
                 bio: bio,
                 profilePic: image
             })
-            console.log(update)
 
             navigate('/home')
 

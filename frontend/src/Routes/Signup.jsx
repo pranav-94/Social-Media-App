@@ -25,7 +25,6 @@ const addUser = async()=>{
         email: email,
         password: password
     })
-    console.log(res.data.data.username)
 
     //Redirect to next route if success
     if(res.data.msg === 'success'){
