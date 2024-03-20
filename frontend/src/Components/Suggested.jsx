@@ -38,7 +38,7 @@ const Suggest = ()=>{
                          <p>@{item.username}</p>
                             </div>
                             <button onClick={()=>{
-                                 navigate('/otherProfile') 
+                                 navigate('/otherProfile',{state:{username:Username,name:item.name}}) 
                             }} className="w-[70px] h-[30px] rounded-md bg-slate-200 text-slate-900">View
                           </button>
                          </div>

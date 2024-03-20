@@ -20,7 +20,10 @@ const Header =()=>{
   return(
     <div className="md:flex md:justify-center pt-3 pb-3 bg-slate-200 text-slate-900">
         <div className=" md:w-[87%] md:h-[65px] md:flex md:justify-between md:items-center  ">
-             <p>App Name</p>
+          <div className="md:flex">
+            <img src="favicon.ico" className="w-[30px] h-[30px] md:mr-2" alt="" />
+             <p>SocialPulse</p>
+          </div>
              <div className="md:w-[150px] md:flex md:justify-evenly md:items-center ">
                   <img src={profilePic} alt="" className="w-[50px] h-[50px] rounded-full"/>
                  <p className="">{username}</p>

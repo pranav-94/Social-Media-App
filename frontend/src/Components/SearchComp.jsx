@@ -45,7 +45,7 @@ useEffect(()=>{
                          </div>
                          </div>
                             <button onClick={()=>{
-                                 navigate('/otherProfile') 
+                                 navigate('/otherProfile',{state:{name: user.name}}) 
                             }} className="w-[70px] h-[30px] rounded-md bg-slate-900 text-slate-200">View
                           </button>
                          </div>
