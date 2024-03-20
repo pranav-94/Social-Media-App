@@ -19,8 +19,6 @@ const PostLogic = ()=>{
         })
     },[])
 
-    console.log(nickname)
-
     const handlePost=async ()=>{
     const sendPost = await axios.post('http://localhost:3000/api/v1/user/sendmessage',{
     username: username,
@@ -28,10 +26,8 @@ const PostLogic = ()=>{
     name: nickname,
     image: img
   })
-  console.log(sendPost)
 }
 
-console.log(message)
 
     return(
         <div className="md:flex md:flex-col md:justify-evenly md:h-[350px]  md:items-center">

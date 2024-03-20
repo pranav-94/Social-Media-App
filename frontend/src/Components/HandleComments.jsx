@@ -35,7 +35,6 @@ const CommentCard = ()=>{
         comment: comment,
         username: Username
     })
-    console.log(addComment)
 }
     
 useEffect(()=>{
@@ -44,8 +43,6 @@ useEffect(()=>{
        setArr(result.data)
     })
 },[])
-
-console.log(arr)
 
     return(
         <div className="md:w-[90%]">
