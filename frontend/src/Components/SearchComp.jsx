@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Audio,Hourglass } from 'react-loader-spinner'
 import { useFetcher, useLocation, useNavigate } from "react-router-dom"
 
 const SearchUsers = ()=>{
@@ -8,6 +9,7 @@ const SearchUsers = ()=>{
     const[query,setQuery] = useState('')
     const navigate = useNavigate()
     const location = useLocation()
+    const [loading,setLoading] = useState(false)
     const Username = localStorage.getItem("username")
 
 
@@ -16,6 +18,7 @@ useEffect(()=>{
     .then(async(res)=>{
         const users = await res.json()
         setUserData(users.data)
+        setLoading(true)
     })
 },[])
 
@@ -29,6 +32,22 @@ useEffect(()=>{
     )
     setFilter(filterData)
 },[query,userData])
+
+if(!loading){
+    return(
+        <div className="md:flex md:w-[100%] md:justify-center md:h-[300px] md:items-center">
+        <Hourglass
+visible={true}
+height="80"
+width="80"
+ariaLabel="hourglass-loading"
+wrapperStyle={{}}
+wrapperClass=""
+colors={['#5D707B', '#5D707B']}
+/>
+        </div>
+    )
+}
 
     return(
         <div className="md:flex md:flex-col md:justify-evenly md:items-center">

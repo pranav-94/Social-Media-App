@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
 import UserMsgs from "./UserMessages"
+import { Audio,Hourglass } from 'react-loader-spinner'
 
 const ProfileData = ()=>{
     return(
@@ -20,8 +21,7 @@ const UserBox = ()=>{
     const[nickname,setNickname] = useState('')
     const[message,setMessage] = useState('')
     const [arr,setArr] = useState([])
-
-
+    const[loading ,setLoading] = useState(true)
     
     useEffect(()=>{
         const userData = fetch(`https://social-media-app-fekd.onrender.com/api/v1/user/userProfile?username=${Username}`)
@@ -32,8 +32,25 @@ const UserBox = ()=>{
             setProfile(data.data.profilePic)
             setNickname(data.data.username)
             setMessage(data.data.bio)
+            setLoading(false)
         })
     },[])
+
+    if(loading){
+        return(
+            <div className="md:flex md:w-[100%] md:justify-center md:h-[300px] md:items-center">
+            <Hourglass
+  visible={true}
+  height="80"
+  width="80"
+  ariaLabel="hourglass-loading"
+  wrapperStyle={{}}
+  wrapperClass=""
+  colors={['#5D707B', '#5D707B']}
+  />
+            </div>
+        )
+    }
 
     return(
         <div>

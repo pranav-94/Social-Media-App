@@ -1,19 +1,38 @@
 import { useEffect, useState } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
 import UserMsgs from "./UserMessages"
+import { Audio,Hourglass } from 'react-loader-spinner'
 
 const HomeContent = ()=>{
 
     const [arr,setArr] = useState([])
     const navigate = useNavigate()
     const Username = localStorage.getItem("username")
+    const [loading,setLoading] = useState(false)
     
     useEffect(()=>{
         const messages = fetch('https://social-media-app-fekd.onrender.com/api/v1/user/retriveMessages').then(async(res)=>{
             const msgData= await res.json()
             setArr(msgData.data)
+            setLoading(true)
         })
     },[])
+
+    if(!loading){
+        return(
+            <div className="md:flex md:w-[100%] md:justify-center md:h-[300px] md:items-center">
+            <Hourglass
+  visible={true}
+  height="80"
+  width="80"
+  ariaLabel="hourglass-loading"
+  wrapperStyle={{}}
+  wrapperClass=""
+  colors={['#5D707B', '#5D707B']}
+  />
+            </div>
+        )
+    }
 
     return(
         <div className="flex justify-center items-center flex-col">

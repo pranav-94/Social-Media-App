@@ -17,7 +17,7 @@ const UserMsgs = ({profilePic,name,username,messages,Username,id})=>{
 <img onClick={()=>{
                 navigate('/otherProfile',{state:{name:name}})
             }} className="w-[50px] h-[50px] cursor-pointer rounded-full mr-5" src={profilePic} alt="" />
-            <div className="w-[80%] ">
+            <div className="w-[70%] ">
                     <p onClick={()=>{
                 navigate('/otherProfile',{state:{name:name}})
             }} className="text-[20px] cursor-pointer font-semibold">{name}</p>
@@ -32,7 +32,7 @@ const UserMsgs = ({profilePic,name,username,messages,Username,id})=>{
     <p>Comments</p>
     <p>Bookmarks</p>
     </div> */}
-            </div>            
+            </div>       
         </div>
  </>
             )
