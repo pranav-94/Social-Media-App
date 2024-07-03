@@ -1,5 +1,7 @@
 import { useState } from "react"
 import axios from "axios"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Link, Navigate, useNavigate } from "react-router-dom"
 
 const Signin =()=>{
@@ -23,10 +25,10 @@ const SignInUser = ()=>{
         })
         console.log(signInRes.data.user.username)
         if(signInRes.data.msg === 'sign in successful'){
+            alert('sign in successful')
            localStorage.setItem("username", signInRes.data.user.username)
            localStorage.setItem("name",signInRes.data.user.name)
            navigate('/home')
-            return
         }
     }
 
@@ -40,7 +42,7 @@ const SignInUser = ()=>{
 
         <button className="bg-green-500 w-[280px] h-[40px] rounded-lg text-[17px]" onClick={addUser}>Sign In</button>
         <p>Don't have an account? <Link to='/'>Sign Up</Link></p>
-
+        <ToastContainer />
         </div>
     )
 }
