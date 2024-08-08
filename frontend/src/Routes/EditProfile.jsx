@@ -49,7 +49,7 @@ const UserForm = ({image,setImage})=>{
     }
 
     const updateInfo = async()=>{
-            const update = await axios.put(`http://localhost:3000/api/v1/user/editProfile?username=${user}`,{
+            const update = await axios.put(`https://social-media-app-fekd.onrender.com/api/v1/user/editProfile?username=${user}`,{
                 name: name,
                 bio: bio,
                 profilePic: image
