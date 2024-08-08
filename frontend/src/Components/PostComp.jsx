@@ -20,7 +20,7 @@ const PostLogic = ()=>{
     },[])
 
     const handlePost=async ()=>{
-    const sendPost = await axios.post('http://localhost:3000/api/v1/user/sendmessage',{
+    const sendPost = await axios.post('https://social-media-app-fekd.onrender.com/api/v1/user/sendmessage',{
     username: username,
     message: message,
     name: nickname,
