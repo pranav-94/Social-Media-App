@@ -20,7 +20,7 @@ const HomeContent = ()=>{
 
     if(!loading){
         return(
-            <div className="md:flex md:w-[100%] md:justify-center md:h-[300px] md:items-center">
+            <div className="flex w-[100%]  justify-center h-[300px] items-center">
             <Hourglass
   visible={true}
   height="80"

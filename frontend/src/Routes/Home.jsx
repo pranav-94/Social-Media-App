@@ -10,17 +10,17 @@ const Home =()=>{
     return(
     <div className="bg-slate-200 text-slate-900 ">
          <Header/>
-    <div className="md:w-[100%]  md:flex md:justify-between">
+    <div className="w-[100%]  flex justify-between">
          <div className="w-[18%]">
            <Nav/>
         </div> 
 
-         <div className="md:w-[57%]">
-         <p className="md:text-[25px] md:ml-7">Home</p>
+         <div className="w-[57%]">
+         <p className="text-[25px] ml-7">Home</p>
              <HomeContent/>
          </div>
 
-         <div className="md:w-[25%]">
+         <div className="w-[25%]">
              <Suggest/>
          </div>
     </div>

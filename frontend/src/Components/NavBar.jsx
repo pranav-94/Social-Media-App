@@ -34,16 +34,16 @@ const NavComponent = ()=>{
 
     return(
         <>
-        <div className="md:w-[100%] md:h-[100vh] sticky top-0  md:flex md:flex-col md:justify-center">
-         <div className="md:h-[80vh] md:flex md:flex-col md:justify-evenly md:items-center ">
-            <button className="hover:bg-slate-900 hover:text-slate-200 w-[180px] font-semibold h-[50px] rounded-lg transition-all ease-in-out duration-500" onClick={Home}>Home</button>
-            <button className="hover:bg-slate-900 hover:text-slate-200 w-[180px] font-semibold h-[50px] rounded-lg transition-all ease-in-out duration-500" onClick={searchUser}>Search</button>
-            <button className="hover:bg-slate-900 hover:text-slate-200 w-[180px] font-semibold h-[50px] rounded-lg transition-all ease-in-out duration-500" onClick={Post}>Post</button>
-            <button className="hover:bg-slate-900 hover:text-slate-200 w-[180px] font-semibold h-[50px] rounded-lg transition-all ease-in-out duration-500" onClick={Profile}>Profile</button>
-            <button className="hover:bg-slate-900 hover:text-slate-200 w-[180px] font-semibold h-[50px] rounded-lg transition-all ease-in-out duration-500" onClick={Settings}>Settings</button>
+        <div className="w-[100%] h-[100vh] sticky top-0  flex flex-col justify-center">
+         <div className="h-[80vh] flex flex-col justify-evenly items-center ">
+            <button className="hover:bg-slate-900 hover:text-slate-200 md:w-[180px] w-[80px]  font-semibold h-[50px] rounded-lg transition-all ease-in-out duration-500" onClick={Home}>Home</button>
+            <button className="hover:bg-slate-900 hover:text-slate-200 md:w-[180px] w-[80px]  font-semibold h-[50px] rounded-lg transition-all ease-in-out duration-500" onClick={searchUser}>Search</button>
+            <button className="hover:bg-slate-900 hover:text-slate-200 md:w-[180px] w-[80px] font-semibold h-[50px] rounded-lg transition-all ease-in-out duration-500" onClick={Post}>Post</button>
+            <button className="hover:bg-slate-900 hover:text-slate-200  font-semibold h-[50px] md:w-[180px] w-[80px] rounded-lg transition-all ease-in-out duration-500" onClick={Profile}>Profile</button>
+            <button className="hover:bg-slate-900 hover:text-slate-200 md:w-[180px] w-[80px] font-semibold h-[50px] rounded-lg transition-all ease-in-out duration-500" onClick={Settings}>Settings</button>
             
         </div>
-        <div className="md:h-[20vh] md:flex md:justify-center md:items-center">
+        <div className="h-[20vh] flex justify-center items-center">
             <Link className="hover:bg-slate-900 hover:text-slate-200 w-[180px] font-semibold h-[50px] rounded-lg flex justify-center items-center" to={'/'}>Log Out</Link>
         </div>
         </div>

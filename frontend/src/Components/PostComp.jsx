@@ -30,9 +30,9 @@ const PostLogic = ()=>{
 
 
     return(
-        <div className="md:flex md:flex-col md:justify-evenly md:h-[350px]  md:items-center">
-        <textarea cols="30" rows="10" className="md:w-[500px] outline-none shadow-md md:h-[250px] bg-slate-300 " type="text" onChange={e=>{setMessage(e.target.value)}}> </textarea>
-        <button className="bg-slate-900 text-slate-200 w-[500px] h-[40px] rounded-lg text-[17px]" onClick={handlePost}>Post</button>
+        <div className="flex flex-col justify-evenly h-[350px]  items-center">
+        <textarea cols="30" rows="10" className="md:w-[500px] outline-none shadow-md h-[250px] w-[300px] ml-20 md:ml-0 bg-slate-300 " type="text" onChange={e=>{setMessage(e.target.value)}}> </textarea>
+        <button className="bg-slate-900 text-slate-200 md:w-[500px] w-[200px] ml-20 md:ml-0 h-[40px] rounded-lg text-[17px]" onClick={handlePost}>Post</button>
         </div>
     )
 }

@@ -6,7 +6,7 @@ const UserMsgs = ({profilePic,name,username,messages,Username,id})=>{
     
     return(
     <>
-        <div  className="md:w-[90%] bg-slate-300 hover:bg-slate-400 text-slate-900  pt-8 md:flex shadow-lg rounded-lg mt-5 mb-5 pb-8 md:justify-center pointer md:items-start transition-all ease-in-out duration-300" >
+        <div  className="w-[100%] md:w-[90%] ml-20 md:ml-0 bg-slate-300 hover:bg-slate-400 text-slate-900  pt-8 flex shadow-lg rounded-lg mt-5 mb-5 pb-8 justify-center pointer items-start transition-all ease-in-out duration-300" >
 <img onClick={()=>{
                 navigate('/otherProfile',{state:{name:name}})
             }} className="w-[50px] h-[50px] cursor-pointer rounded-full mr-5" src={profilePic} alt="" />
@@ -20,7 +20,7 @@ const UserMsgs = ({profilePic,name,username,messages,Username,id})=>{
                     <p className="cursor-pointer" onClick={()=>{
         navigate('/comments',{state:{username:Username,name:name,profilePic:profilePic,message:messages,Username:username,id:id}}) 
     }}>{messages}</p>  
-    {/* <div className="md:flex md:justify-between md:mt-7 cursor-pointer">
+    {/* <div className="flex justify-between mt-7 cursor-pointer">
     <p onClick={handleLikes}>Likes</p>
     <p>Comments</p>
     <p>Bookmarks</p>

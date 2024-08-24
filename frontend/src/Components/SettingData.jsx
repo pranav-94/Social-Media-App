@@ -32,7 +32,7 @@ const navigate = useNavigate()
 
     return(
         <div>
-           <div className="flex h-[50px]  md:justify-around items-center  mt-5 mb-5">
+           <div className="flex h-[50px] ml-20 md:ml-0 justify-around items-center  mt-5 mb-5">
             <p>Delete your account</p>
             <button onClick={handleDelete} className="w-[70px] h-[30px] rounded-md bg-slate-900 text-slate-200">Delete</button>
            </div>

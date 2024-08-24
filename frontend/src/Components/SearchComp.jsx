@@ -35,7 +35,7 @@ useEffect(()=>{
 
 if(!loading){
     return(
-        <div className="md:flex md:w-[100%] md:justify-center md:h-[300px] md:items-center">
+        <div className="flex w-[100%]  md:w-[100%] justify-center h-[300px] items-center">
         <Hourglass
 visible={true}
 height="80"
@@ -50,15 +50,15 @@ colors={['#5D707B', '#5D707B']}
 }
 
     return(
-        <div className="md:flex md:flex-col md:justify-evenly md:items-center">
-        <input className="md:w-[100vh] h-[40px] rounded-md mt-5 mb-5 pl-3 bg-slate-300 text-slate-900 shadow-lg" type="text" placeholder="search" value={query} onChange={e=>{setQuery(e.target.value)}}/>
+        <div className="flex flex-col justify-evenly items-center">
+        <input className="md:w-[100vh] ml-20 md:ml-0 h-[40px] rounded-md mt-5 mb-5 pl-3 bg-slate-300 text-slate-900 shadow-lg" type="text" placeholder="search" value={query} onChange={e=>{setQuery(e.target.value)}}/>
         {
                  filter.map((user)=>{
                     return(
-                        <div className="w-[100vh] h-[110px] bg-slate-300 text-slate-900 mt-5 mb-5 flex justify-around items-center rounded-lg shadow-lg">
-                            <div className="md:flex ">
+                        <div className="md:w-[100vh] ml-20 md:ml-0 w-[90%] h-[110px] bg-slate-300 text-slate-900 mt-5 mb-5 flex justify-around items-center rounded-lg shadow-lg">
+                            <div className="flex ">
                             <img src={user.profilePic} alt="" className="w-[50px] h-[50px] rounded-full mr-3"/>
-                            <div className="md:flex md:flex-col">
+                            <div className="flex flex-col">
                          <p>{user.name}</p>
                          <p>@{user.username}</p>
                          </div>
