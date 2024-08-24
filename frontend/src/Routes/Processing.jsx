@@ -39,7 +39,7 @@ const UserForm = ({image})=>{
     const navigate = useNavigate()
 
     const updateInfo = async()=>{
-            const update = await axios.put(`http://localhost:3000/api/v1/user/onBoarding?username=${user}`,{
+            const update = await axios.put(`https://social-media-app-fekd.onrender.com/api/v1/user/onBoarding?username=${user}`,{
                 name: name,
                 bio: bio,
                 profilePic: image
